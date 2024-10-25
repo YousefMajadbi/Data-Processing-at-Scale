@@ -1,0 +1,50 @@
+Hot zone analysis:
+○ Input is a set of rectangles and set of points => aim finding the hotness zone/cell based
+on the number of points in each rectangle.
+○ Function ST-Contains
+■ Input 2 strings
+● Corner (opposite) points of the rectangle
+● point
+○ Whether the point is in the rectangle or not?
+○ You need to modify the below-highlighted file to write the function ST-Contains.
+○ Then Open:
+○ You need to add .coalesce(1) to the last query and this function merges all the partitions
+into a single partition and returns the output
+Create a jar file:
+1. Once you finish your function in Scala, you need to create the jar file and then test it.
+2. Go to the main root of the template:
+○ Open the command line:
+■ cd <your path to the project folder>
+■ sbt assembly (takes some time to create a jar file)
+■ You will find the jar file inside the target folder
+Test your code
+1. After creating the jar file, you need to test it.
+2. Input test cases will be in the following folder: <your template folder path>\testcase\hotzone
+3. You need to write the following:
+spark-submit
+target\scala-<version>\CSE512-Hotspot-Analysis-Template-assembly-0.1.
+0.jar test\output hotzoneanalysis src\resources\point-hotzone.csv
+src\resources\zone-hotzone.csv
+4. If everything is correct, you will see the output in the below path.
+5. Its content must be the same as the output (hot zone-example-answer) as we have in the
+template:
+6. Done!!
+For Hot Cell Analysis:
+1. After applying changes in “HotcellAnalysis.scala and HotcellUtils.scala”
+2. Then make a jar file using sbt assembly
+3. Before testing the jar file,
+a. We also need to download the point data
+i. Download CSE 511_Hot Spot Analysis Project_yellow_trip_sample_100000.zip
+ii. Unzip and extract CSE 511_Hot Spot Analysis
+Project_yellow_trip_sample_100000.csv file.
+b. Paste the .csv file in the following path: <your project template folder
+path>\src\resources
+4. The test input data will be in the following path: <your project template folder
+path>\testcase\hotcell\hotcell-example-input
+5. You need to write the following command
+spark-submit
+target\scala-<version>\CSE512-Hotspot-Analysis-Template-assembly-0.1.
+0.jar test\output hotcellanalysis
+src\resources\yellow_trip_sample_100000.csv
+6. If everything is correct, you will see the output in the below path.
+7. Done
